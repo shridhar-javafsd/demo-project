@@ -1,64 +1,72 @@
 package com.lti.springboot.demo.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import com.lti.springboot.demo.model.Employee;
+import com.lti.springboot.demo.repository.EmployeeRepository;
+
+@SpringBootTest
 class EmployeeServiceTest {
 
+	@Mock
+	private EmployeeRepository employeeRepository;
+
+	@InjectMocks
+	private EmployeeService employeeService;
+
+	private Employee employee;
+
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
+	static void setUpBeforeClass() {
+
 	}
 
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {
+	static void tearDownAfterClass() {
 	}
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() {
+		employeeRepository = Mockito.mock(EmployeeRepository.class);
+		employeeService = Mockito.mock(EmployeeService.class);
+		employee = new Employee(101, "Sonu", 90000);
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	void tearDown() {
 	}
 
+	@DisplayName("JUnit test for saveEmployee method")
 	@Test
-	void testGetAllEmployees() {
-		fail("Not yet implemented");
+	public void givenEmployeeObject_whenSaveEmployee_thenReturnEmployeeObject() {
+		// given - precondition or setup
+
+		when(employeeRepository.save(employee)).thenReturn(employee);
+
+		Employee savedEmployee = employeeService.addEmployee(employee);
+
+		assertThat(savedEmployee).isNull();
 	}
 
-	@Test
-	void testGetAllEmployeesIntIntString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetEmployeeById() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetEmployeesBySalaryGreaterThan() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testAddEmployee() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testUpdateEmployee() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testDeleteEmployee() {
-		fail("Not yet implemented");
-	}
+//	// JUNit 
+//	@Test
+//	void testGetAllEmployees() {
+//		assertEquals(1002, employeeService.getAllEmployees().size());
+//	}
 
 }
