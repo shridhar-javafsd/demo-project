@@ -52,3 +52,25 @@ public class SignupRequest {
 		this.role = role;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//{
+//    "username": "vamandeshmukh",
+//    "email": "vamandeshmukh@gmail.com",
+//    "role": ["ROLE_USER"],
+//    "password": "vamandeshmukh"
+//}
