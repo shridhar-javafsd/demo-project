@@ -29,9 +29,9 @@ import com.lti.springboot.demo.config.SignupRequest;
 import com.lti.springboot.demo.model.ERole;
 import com.lti.springboot.demo.model.Role;
 import com.lti.springboot.demo.model.User;
+import com.lti.springboot.demo.model.UserDetailsImpl;
 import com.lti.springboot.demo.repository.RoleRepository;
 import com.lti.springboot.demo.repository.UserRepository;
-import com.lti.springboot.demo.service.UserDetailsImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

@@ -1,5 +1,6 @@
 package com.lti.springboot.demo.service;
 import com.lti.springboot.demo.model.User;
+import com.lti.springboot.demo.model.UserDetailsImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
